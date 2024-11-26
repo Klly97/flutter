@@ -5,28 +5,24 @@ class SuMensajeBurbuja extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context)
-        .colorScheme; //Toma los colores para las burbujas del tema
+    final colors = Theme.of(context).colorScheme; //Toma los colores para las burbujas del tema
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           decoration: BoxDecoration(
-              color: colors
-                  .primary, //Toma el color definido en el tema, el 1, 2, 3, etc
-              borderRadius:
-                  BorderRadius.circular(20) //Borde redondo en los chats
+              color: colors.secondary, //Toma el color definido en el tema, el 1, 2, 3, etc
+              borderRadius:BorderRadius.circular(20) //Borde redondo en los chats
               ),
           child: const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: Text(
-              'Mensaje Respondido',
-              style: TextStyle(color: Colors.white),
-            ),
+            child: Text('Mensaje Respondido', style: TextStyle(color: Colors.white),),
           ),
         ),
         const SizedBox(height: 5),
+
         _ImagenBurbuja(),
+
         const SizedBox(height: 10),
       ],
     );
@@ -34,13 +30,13 @@ class SuMensajeBurbuja extends StatelessWidget {
 }
 
 class _ImagenBurbuja extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context)
-        .size; //El mediaQuery da informacion del tamaño del dispositivo
+    final size = MediaQuery.of(context).size; //El mediaQuery da informacion del tamaño del dispositivo
 
-    return ClipRRect(
-        //Permite hacer border redondeados
+    return ClipRRect(//Permite hacer border redondeados
         borderRadius: BorderRadius.circular(20),
         child: Image.network(
           'https://yesno.wtf/assets/yes/5-64c2804cc48057b94fd0b3eaf323d92c.gif',
